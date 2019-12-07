@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RSS Feed Viewer</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles/api.css"/>
+</head>
+  <body>
+    <div id="container">
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-12 card">
+                        <h1>API</h1>
+                        <p>Documentation for the backend RESTful API</p>
+                    </div>
+                </div>
+                <div class="row" id="auth-container">
+                    <div class="col-sm-12 card">
+                        <h2 id="auth">Auth</h2>
+                        <p>Authentication api for retrieving access tokens</p>
+                        <h3>Login</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/auth/login</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>POST</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Body</th>
+                                                    <td>
+                                                        {
+                                                            username: <span class="text-success">String</span>,
+                                                            password: <span class="text-success">String</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            auth: <span class="text-success">Boolean</span>,
+                                                            token: <span class="text-success">String</span>,
+                                                            message: <span class="text-success">String</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Sign Up</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/auth/signup</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>POST</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Body</th>
+                                                    <td>
+                                                        {
+                                                            username: <span class="text-success">String</span>,
+                                                            password: <span class="text-success">String</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            auth: <span class="text-success">Boolean</span>,
+                                                            token: <span class="text-success">String</span>,
+                                                            message: <span class="text-success">String</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Logout</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/auth/logout</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>POST</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Body</th>
+                                                    <td>
+                                                        N/A
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            auth: <span class="text-success">Boolean</span>,
+                                                            token: <span class="text-success">String</span>,
+                                                            message: <span class="text-success">String</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="user-container">
+                    <div class="col-sm-12 card">
+                        <h2>User</h2>
+                        <p>Retrieving and updating user details</p>
+                        <h3>Get Details</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/user/getDetails</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>GET</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                            'x-access-token': <span class="">String</span>
+                                                        }
+        
+                                                        <p class="text-danger">This service requires an access token (x-access-token). This can be retrieved from the <a href="#">Auth</a> service</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            username: <span class="text-success">String</span>,
+                                                            feedSources: <span class="text-success">Array</span>,
+                                                            login: <span class="text-success">Date</span>,
+                                                            lastLogin: <span class="text-success">Date</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Add Feed</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/user/addFeed</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>POST</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                            'x-access-token': <span class="">String</span>
+                                                        }
+        
+                                                        <p class="text-danger">This service requires an access token (x-access-token). This can be retrieved from the <a href="#auth">Auth</a> service</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Body</th>
+                                                    <td>
+                                                        {
+                                                            feedSource: <span class="text-success">String</span>
+                                                        }
+                                                        <p>Currently supported feed source names </p>
+                                                        <ul>
+                                                            <li>World - World United States - Goodle News</li>
+                                                            <li>Defence Blog</li>
+                                                            <li>BBC News - World</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            username: <span class="text-success">String</span>,
+                                                            feedSources: <span class="text-success">Array</span>,
+                                                            login: <span class="text-success">Date</span>,
+                                                            lastLogin: <span class="text-success">Date</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Remove Feed</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/user/removeFeed</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>DELETE</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>https://escape-room-generator.herokuapp.com/designer
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                            'x-access-token': <span class="">String</span>
+                                                        }
+        
+                                                        <p class="text-danger">This service requires an access token (x-access-token). This can be retrieved from the <a href="#auth">Auth</a> service</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Body</th>
+                                                    <td>
+                                                        {
+                                                            feedSource: <span class="text-success">String</span>
+                                                        }
+                                                        <p>Currently supported feed source names </p>
+                                                        <ul>
+                                                            <li>World - World United States - Goodle News</li>
+                                                            <li>Defence Blog</li>
+                                                            <li>BBC News - World</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            username: <span class="text-success">String</span>,
+                                                            feedSources: <span class="text-success">Array[String]</span>,
+                                                            login: <span class="text-success">Date</span>,
+                                                            lastLogin: <span class="text-success">Date</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="feed-container">
+                    <div class="col-sm-12 card">
+                        <h2>Feed</h2>
+                        <p>Retrieving supported RSS feeds by list of source names</p>
+                        <h3>Get Feeds</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/feed/getFeeds?feeds=[feedSource...,]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>GET</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                            'x-access-token': <span class="">String</span>
+                                                        }
+        
+                                                        <p class="text-danger">This service requires an access token (x-access-token). This can be retrieved from the <a href="#auth">Auth</a> service</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Params</th>
+                                                    <td>
+                                                        feeds: <span class="text-success">Array[String]</span>
+        
+                                                        <p>Supported feed source names (use exact values)</p>
+                                                        <ul>
+                                                            <li>World - World United States - Goodle News</li>
+                                                            <li>Defence Blog</li>
+                                                            <li>BBC News - World</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            sourceName: {
+                                                                title: <span class="text-success">String</span>,
+                                                                description: <span class="text-success">String</span>,
+                                                                link: <span class="text-success">String</span>,
+                                                                item: [
+                                                                    title: <span class="text-success">String</span>,
+                                                                    description: <span class="text-success">String</span>,
+                                                                    link: <span class="text-success">String</span>,
+                                                                    ...
+                                                                ]
+                                                            }
+                                                        }
+                                                        <p class="text-danger">Structure can vary depending on feeds added</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Get Feed Sources</h3>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">URL</th>
+                                    <td>/api/feed/getFeedSources</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Method</th>
+                                    <td>GET</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Request</th>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                            'x-access-token': <span class="">String</span>
+                                                        }
+        
+                                                        <p class="text-danger">This service requires an access token (x-access-token). This can be retrieved from the <a href="#auth">Auth</a> service</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Response</th>
+                                    <td>                                
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Headers</th>
+                                                    <td>
+                                                        {
+                                                            'Content-Type': 'application/json'
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Payload</th>
+                                                    <td>
+                                                        {
+                                                            feedSources: <span class="text-success">Array[String]</span>
+                                                        }
+                                                        <p>Currently supported feed source names </p>
+                                                        <ul>
+                                                            <li>World - World United States - Goodle News</li>
+                                                            <li>Defence Blog</li>
+                                                            <li>BBC News - World</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </body>
+</html>
